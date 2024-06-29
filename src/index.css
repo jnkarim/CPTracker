@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  padding-top: 60px; /* Adjust this value according to your navbar height */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px; /* Adjust this value for smaller screens if navbar height is different */
+  }
+}
+
+.btn {
+  background-color: greenyellow;
+  border-radius: 5px;
+  font-size: larger;
+  padding: 10px 8px;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  color: black;
+  background-color: goldenrod;
+}
+
+.nav-main-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+/* HOMEPAGE */
+
+.homepage {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.platform-slider {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.platform-box {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the box takes full height */
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px; /* Adjust margin to create space below logo */
+  margin-left: auto; /* Pushes logo to the right */
+  margin-right: auto; /* Pushes logo to the left */
+  display: block; /* Ensures logo is displayed as a block element */
+}
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Adjust bio styles */
+.bio {
+  width: 100%;
+  background-color: transparent; /* Set background color to transparent */
+  color: white;
+  text-align: center;
+  padding: 20px 0; /* Increase padding to create more space */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.bio h1 {
+  font-size: 60px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: black;
+}
+
+.platform-box {
+  width: calc(50% - 20px); /* Adjust box width */
+  height: 350px; /* Increase box height */
+  background-color: rgba(
+    46,
+    0,
+    128,
+    0.5
+  ); /* Set semi-transparent blue background color */
+  transition: background-color 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 40px; /* Add margin to create space between bio and boxes */
+  color: white;
+  margin-bottom: 20px;
+}
+
+.platform-box p {
+  margin-top: 20px; /* Add margin between heading and description */
+  font-size: 25px; /* Adjust font size as needed */
+}
+
+.platform-box button {
+  width: 50%; /* Set button width to auto */
+  padding: 10px 10px; /* Adjust button padding */
+  background-color: black; /* Set button background color */
+  color: white; /* Set button text color */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Apply button border radius */
+  cursor: pointer; /* Set cursor to pointer */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.platform-box button:hover {
+  background-color: #2e0080; /* Change background color on hover */
+}
+
+.contest-box {
+  margin: 0 auto;
+  width: 400px; /* Set the width of the box */
+  height: 250px; /* Set the height of the box */
+  background-color: rgba(
+    46,
+    8,
+    113,
+    0.8
+  ); /* Set semi-transparent blue background color */
+  transition: background-color 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+.footer {
+  position: fixed; /* Fixed position so it remains at the bottom */
+  bottom: 0; /* Aligns the footer to the bottom */
+  left: 0; /* Aligns the footer to the left */
+  width: 100%; /* Full width of the viewport */
+  background-color: black;
+  color: #fff;
+  padding: 10px 0; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.contest-box {
+  margin-bottom: 40px; /* Add margin to the bottom of the contest box */
+}
+
+/* Define animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply animations to elements */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
