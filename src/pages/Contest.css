@@ -1,0 +1,201 @@
+/* Imports for fonts (already included in previous messages) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: "Montserrat", sans-serif;
+  padding-top: 60px; /* Adjust this value according to your navbar height */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px; /* Adjust this value for smaller screens if navbar height is different */
+  }
+}
+
+.btn {
+  background-color: #d8b6ff; /* Light purple color */
+  border-radius: 5px;
+  font-size: larger;
+  padding: 10px 20px;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none; /* Ensure the button link is styled as a button */
+}
+
+.btn:hover {
+  color: black;
+  background-color: #c490ff; /* Slightly darker purple on hover */
+}
+
+.nav-main-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+/* HOMEPAGE */
+.homepage {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.platform-slider {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.platform-box {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the box takes full height */
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px; /* Adjust margin to create space below logo */
+  margin-left: auto; /* Pushes logo to the right */
+  margin-right: auto; /* Pushes logo to the left */
+  display: block; /* Ensures logo is displayed as a block element */
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(46, 0, 128, 0.5);
+}
+
+/* Adjust bio styles */
+.bio {
+  width: 100%;
+  background-color: transparent; /* Set background color to transparent */
+  color: white;
+  text-align: center;
+  padding: 20px 0; /* Increase padding to create more space */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.bio h1 {
+  font-size: 60px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: black;
+}
+
+/* Contest Component Styling */
+
+.contest-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.contest-title {
+  color: white;
+  margin-bottom: 20px;
+  font-family: "Pacifico", cursive;
+  font-size: 36px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.contest-item {
+  width: 80%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(46, 0, 128, 0.5); /* Transparent purple background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center;
+}
+
+.contest-details {
+  color: white; /* Adjust text color as needed */
+}
+
+.contest-details h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.contest-details p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contest-details .btn {
+  background-color: black; /* Light purple color for buttons */
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.contest-details .btn:hover {
+  background-color: #2e0080; /* Darker purple on hover */
+}
+
+.transition-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.transition-item-enter-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.transition-item {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.transition-item-active {
+  opacity: 1;
+}

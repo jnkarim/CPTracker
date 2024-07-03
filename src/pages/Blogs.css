@@ -1,12 +1,16 @@
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.header h1 {
+  font-family: "Brush Script MT", cursive;
+  font-weight: bold;
+  font-size: 48px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  color: black;
+}
+
+.header p {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 20px;
 }
 
 .blogs-container {
@@ -40,7 +44,7 @@
 .search-button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #2e0080;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -48,7 +52,7 @@
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  background-color: black;
 }
 
 .blog-list {
@@ -59,7 +63,7 @@
 
 .blog-item {
   display: flex;
-  background-color: #f9f9f9;
+  background-color: rgba(46, 0, 128, 0.5); /* Transparent purple background */
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
@@ -70,7 +74,7 @@
 }
 
 .blog-item:hover {
-  background-color: #e9ecef;
+  background-color: #2e0080; /* Darker purple on hover */
 }
 
 .blog-image {
@@ -87,7 +91,7 @@
 .blog-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #007bff;
+  color: white;
   text-decoration: underline;
 }
 
