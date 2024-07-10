@@ -1,16 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: rgba(26, 75, 94, 0.969);
+  height: 100px;
+  background-color: #02132d;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -24,14 +28,15 @@
 
 .brand {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 50px;
   color: whitesmoke;
   font-family: "Playwrite NG Modern", cursive;
+  color: gold;
 }
 
 .nav-ul {
   display: flex;
-  font-size: 20px;
+  font-size: 30px;
   gap: 30px;
   padding: 0;
   margin: 0;

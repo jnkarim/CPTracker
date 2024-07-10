@@ -6,14 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-image: url("../assets/background.jpg");
-  background-size: cover;
-  background-position: center;
-  font-family: "Montserrat", sans-serif;
-  padding-top: 60px; /* Adjust this value according to your navbar height */
-}
-
 @media (max-width: 768px) {
   body {
     padding-top: 80px; /* Adjust this value for smaller screens if navbar height is different */
