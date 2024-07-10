@@ -1,17 +1,25 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
-import logo2 from "../assets/codechef.png";
-import logo1 from "../assets/codeforces.png";
-import "./Homepage.css";
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+
+import logo1 from '../assets/codeforces.png';
+import logo2 from '../assets/codechef.png';
+import linkedinLogo from '../assets/linkedin.png';
+import facebookLogo from '../assets/facebook.png';
+import twitterLogo from '../assets/twitter.png';
+import discordLogo from '../assets/discord.png';
+import instagramLogo from '../assets/instagram.png';
+
+import './Homepage.css';
 
 const Homepage = () => {
   const navigate = useNavigate();
 
   const navigateToUrl = (url) => {
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   };
 
   const sliderSettings = {
@@ -24,13 +32,28 @@ const Homepage = () => {
     autoplaySpeed: 3000,
   };
 
+  const navigateToContest = () => {
+    navigate('/contest'); // Navigate to /contest route
+  };
+
+  const navigateToContactUs = () => {
+    navigate('/contactus', {
+      state: {
+        developers: [
+          { name: 'MD NAHID HOSSAIN', email: 'nahid.cse.20220104146@aust.edu' },
+          { name: 'JULKER NAYEEN KARIM', email: 'julker.cse.20220104146@aust.edu' },
+          { name: 'JAMIL JIM', email: 'jamil.cse.20220104146@aust.edu' },
+        ],
+      },
+    });
+  };
+
   return (
     <div>
       <div className="section1">
         <div className="bio animated fadeIn">
           <h1 className="bio-heading">
-            One place for all your{" "}
-            <span className="highlight">CODING PLATFORM</span> needs!
+            One place for all your <span className="highlight">CODING PLATFORM</span> needs!
           </h1>
         </div>
       </div>
@@ -42,12 +65,11 @@ const Homepage = () => {
             <span>Discover & Explore</span>
           </h1>
           <h2>
-            Embark on an elevated coding and development journey with CPTracker,
-            your ultimate companion in competitive programming excellence. Dive
-            into a world where every line of code counts, supported by intuitive
-            tools and insightful analytics.
+            Embark on an elevated coding and development journey with CPTracker, your ultimate companion in
+            competitive programming excellence. Dive into a world where every line of code counts, supported by
+            intuitive tools and insightful analytics.
           </h2>
-          <button className="half2-login" onClick={() => navigate("/login")}>
+          <button className="half2-login" onClick={() => navigate('/login')}>
             Log In
           </button>
         </div>
@@ -69,13 +91,9 @@ const Homepage = () => {
               <h2>Codeforces</h2>
               <img src={logo1} alt="Codeforces Logo" className="logo" />
               <p>
-                Online competitive programming platform with a global community
-                and regular contests.
+                Online competitive programming platform with a global community and regular contests.
               </p>
-              <button
-                onClick={() => navigateToUrl("https://codeforces.com/")}
-                className="platform-button"
-              >
+              <button onClick={() => navigateToUrl('https://codeforces.com/')} className="platform-button">
                 Visit Codeforces
               </button>
             </div>
@@ -86,13 +104,9 @@ const Homepage = () => {
               <h2>CodeChef</h2>
               <img src={logo2} alt="CodeChef Logo" className="logo" />
               <p>
-                Competitive programming platform featuring coding contests and
-                challenges.
+                Competitive programming platform featuring coding contests and challenges.
               </p>
-              <button
-                onClick={() => navigateToUrl("https://www.codechef.com/")}
-                className="platform-button"
-              >
+              <button onClick={() => navigateToUrl('https://www.codechef.com/')} className="platform-button">
                 Visit CodeChef
               </button>
             </div>
@@ -103,27 +117,88 @@ const Homepage = () => {
       <div className="section3">
         <div className="bio animated fadeIn">
           <h2 className="bio-subheading">
-            Filter contests based on various criteria and view <br></br>contest
-            details such as remaining time, duration, and more..
+            Filter contests based on various criteria and view <br />contest details such as remaining time, duration,
+            and more..
           </h2>
         </div>
 
         <div className="contest-box animated zoomIn">
           <h2 className="contest-heading">Upcoming Contests</h2>
           <p className="contest-description">
-            Stay updated with upcoming coding contests and challenges from
-            various platforms.
+            Stay updated with upcoming coding contests and challenges from various platforms.
           </p>
-          <button
-            className="contest-button"
-            onClick={() => navigate("/contest")}
-          >
+          <button className="contest-button" onClick={navigateToContest}>
             Explore Contests
           </button>
         </div>
       </div>
 
       <div className="footer animated fadeIn">
+        <div className="footer-content">
+          <div className="footer-left">
+            <img src={logo1} alt="Logo" className="footer-logo" />
+            <h3>CPTracker</h3>
+            <p>
+              Explore upcoming coding contests and dynamically create developer portfolios.
+            </p>
+          </div>
+          <div className="footer-right">
+            <div className="footer-section">
+              <h4>Competitions</h4>
+              <button onClick={navigateToContest}>Contests</button>
+            </div>
+            <div className="footer-section">
+              <h4>Opportunities</h4>
+              <button onClick={() => navigateToUrl('https://allevents.in/dhaka/hackathons#')}>
+                Hackathons
+              </button>
+              <button onClick={() => navigateToUrl('https://www.glassdoor.com/index.htm')}>
+                Internships
+              </button>
+              <button onClick={() => navigateToUrl('https://www.bdjobs.com/')}>
+                Jobs
+              </button>
+            </div>
+            <div className="footer-section">
+              <h4>Connect</h4>
+              <button onClick={() => navigate('/feedback')}>Feedback</button>
+              <button onClick={navigateToContactUs}>Contact Us</button>
+              <button onClick={() => navigate('/about')}>About CPTracker</button>
+              <button onClick={() => navigate('/discord')}>Join our Discord</button>
+            </div>
+            <div className="footer-section">
+              <h4>Social</h4>
+              <div className="social-icons">
+                <img
+                  src={linkedinLogo}
+                  alt="LinkedIn"
+                  onClick={() => navigateToUrl('https://github.com/')}
+                />
+                <img
+                  src={facebookLogo}
+                  alt="Facebook"
+                  className="social-logo"
+                  onClick={() => navigateToUrl('https://www.facebook.com/')}
+                />
+                <img
+                  src={twitterLogo}
+                  alt="Twitter"
+                  onClick={() => navigateToUrl('https://twitter.com/')}
+                />
+                <img
+                  src={discordLogo}
+                  alt="Discord"
+                  onClick={() => navigateToUrl('https://discord.com/')}
+                />
+                <img
+                  src={instagramLogo}
+                  alt="Instagram"
+                  onClick={() => navigateToUrl('https://www.instagram.com/')}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <p>All rights are reserved &copy;CPTracker</p>
       </div>
     </div>
