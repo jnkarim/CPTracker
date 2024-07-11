@@ -1,57 +1,92 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Auth.css"; // Assuming you'll create a separate CSS file
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import image from "../assets/signup.png"; // Adjust the path as necessary
+import "./Auth.css"; // Adjust the path as necessary
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Apply styles when the component mounts
+    document.body.classList.add("Signup");
+    document.documentElement.classList.add("Signup");
+
+    // Cleanup styles when the component unmounts
+    return () => {
+      document.body.classList.remove("Signup");
+      document.documentElement.classList.remove("Signup");
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
     try {
-      const response = await axios.post("/api/signup", { email, password });
-      console.log(response.data); // Log response from backend
-      // Optionally, redirect to login page or handle success message
+      const res = await axios.post("http://localhost:5000/api/signup", {
+        email,
+        password,
+      });
+      if (res.data.success) {
+        // Handle successful signup
+        navigate("/login"); // Redirect to login page
+      } else {
+        // Handle signup error
+        alert(res.data.message);
+      }
     } catch (error) {
-      console.error(error);
-      // Handle error response
+      console.error("Signup Error:", error);
+      alert("Something went wrong");
     }
   };
 
   return (
     <div className="auth-container">
-      <div className="auth-box">
-        <h2>Create an Account</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="signup-email">Email Address:</label>
+      <div className="auth-form">
+        <div className="login">
+          <form onSubmit={handleSubmit}>
+            <h1>Signup</h1>
+            <hr />
+            <p>Join Us!</p>
+            <label>Email</label>
             <input
-              type="email"
-              id="signup-email"
-              name="signup-email"
+              type="text"
+              placeholder="abc@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
-          </div>
-          <div className="input-group">
-            <label htmlFor="signup-password">Password:</label>
+            <label>Password</label>
             <input
               type="password"
-              id="signup-password"
-              name="signup-password"
+              placeholder="Enter your password!"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
-          </div>
-          <button type="submit">Sign up</button>
-        </form>
-        <p className="auth-footer">
-          Already have an account? <Link to="/login">Log in here</Link>
-        </p>
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              placeholder="Confirm your password!"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <button type="submit">Submit</button>
+            <p>
+              Already have an account?{" "}
+              <Link to="/login" style={{ color: "aqua" }}>
+                Login
+              </Link>
+            </p>
+          </form>
+        </div>
+        <div className="pic">
+          <img src={image} alt="Signup illustration" />
+        </div>
       </div>
     </div>
   );

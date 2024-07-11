@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 90px;
   background-color: #02132d;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@
   font-size: 50px;
   color: whitesmoke;
   font-family: "Playwrite NG Modern", cursive;
-  color: gold;
+  color: sandybrown;
 }
 
 .nav-ul {
