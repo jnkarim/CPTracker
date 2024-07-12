@@ -1,0 +1,138 @@
+.profile-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: sandybrown;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-heading {
+    text-align: center;
+    color: black;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+  }
+  
+  .profile-details {
+    font-size: 1.2em;
+  }
+  
+  .bio-section {
+    margin-bottom: 20px;
+  }
+  
+  .bio-section h2 {
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .bio-section p {
+    color: black;
+    font-size: 1.2em;
+  }
+  
+  .profile-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .profile-card {
+    width: 45%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .profile-card h2 {
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .profile-card p {
+    color: black;
+    font-size: 1.2em;
+  }
+  
+  .rank,
+  .problems-solved {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .performance-graph {
+    margin-bottom: 20px;
+  }
+  
+  .performance-graph h2 {
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .performance-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recent-activities {
+    margin-bottom: 20px;
+  }
+  
+  .recent-activities h2 {
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .recent-activities ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recent-activities li {
+    color: black;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .profile-actions {
+    text-align: center;
+  }
+  
+  .btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .btn:hover {
+    background-color: salmon;
+  }
