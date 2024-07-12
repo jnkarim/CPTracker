@@ -5,9 +5,8 @@ import image from "../assets/signup.png"; // Adjust the path as necessary
 import "./Auth.css"; // Adjust the path as necessary
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,25 +23,27 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
     try {
-      const res = await axios.post("http://localhost:5000/api/signup", {
-        email,
+      const res = await axios.post("http://localhost:3000/users", {
+        username,
         password,
+      }, {
+        withCredentials: true
       });
-      if (res.data.success) {
+
+      console.log("Response data:", res.data); // Log the response data for debugging
+      
+      if (res.data) {
         // Handle successful signup
+        console.log(res.data);
         navigate("/login"); // Redirect to login page
       } else {
         // Handle signup error
-        alert(res.data.message);
+        alert(res.data.message || "Signup failed. Please try again.");
       }
     } catch (error) {
       console.error("Signup Error:", error);
-      alert("Something went wrong");
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -54,12 +55,12 @@ const Signup = () => {
             <h1>Signup</h1>
             <hr />
             <p>Join Us!</p>
-            <label>Email</label>
+            <label>Username</label>
             <input
               type="text"
-              placeholder="abc@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <label>Password</label>
             <input
@@ -67,13 +68,6 @@ const Signup = () => {
               placeholder="Enter your password!"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              placeholder="Confirm your password!"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <button type="submit">Submit</button>
             <p>

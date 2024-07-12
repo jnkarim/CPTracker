@@ -5,7 +5,7 @@ import image from "../assets/login.png"; // Adjust the path as necessary
 import "./Auth.css"; // Adjust the path as necessary
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -24,20 +24,26 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/login", {
-        email,
+      const res = await axios.post("http://localhost:3000/auth/login", {
+        username,
         password,
+      }, {
+        withCredentials: true
       });
-      if (res.data.success) {
+      
+      console.log("Response data:", res.data); // Log the response data for debugging
+      
+      if (res.data) {
         // Handle successful login
-        navigate("/"); // Redirect to homepage or another route
+        console.log(res.data);
+        navigate("/profile"); // Redirect to homepage or another route
       } else {
         // Handle login error
-        alert(res.data.message);
+        alert(res.data.message || "Login failed. Please try again.");
       }
     } catch (error) {
       console.error("Login Error:", error);
-      alert("Something went wrong");
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -49,12 +55,12 @@ const Login = () => {
             <h1>Login</h1>
             <hr />
             <p>Explore the World!</p>
-            <label>Email</label>
+            <label>Username</label>
             <input
               type="text"
-              placeholder="abc@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <label>Password</label>
             <input
