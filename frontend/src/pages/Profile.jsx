@@ -44,14 +44,7 @@ const Profile = () => {
           </p>
         </div>
       </div>
-      <div className="performance-graph">
-        <h2>Performance Graph</h2>
-        <img
-          src="https://via.placeholder.com/600x300"
-          alt="Performance Graph"
-          className="performance-image"
-        />
-      </div>
+
       <div className="recent-activities">
         <h2>Recent Activities</h2>
         <ul>
