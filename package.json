@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "chart.js": "^4.4.3"
+    "chart.js": "^4.4.3",
+    "react-social-icons": "^6.17.0"
   }
 }

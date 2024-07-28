@@ -1,16 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { SocialIcon } from "react-social-icons"; // Import SocialIcon from react-social-icons
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-
 import logo2 from "../assets/codechef.png";
 import logo1 from "../assets/codeforces.png";
-import discordLogo from "../assets/discord.png";
-import facebookLogo from "../assets/facebook.png";
-import instagramLogo from "../assets/instagram.png";
-import linkedinLogo from "../assets/linkedin.png";
-import twitterLogo from "../assets/twitter.png";
 
 import "./Homepage.css";
 
@@ -192,34 +187,13 @@ const Homepage = () => {
               </button>
             </div>
             <div className="footer-section">
-              <h4>Social</h4>
+              <h4>Social Media</h4>
               <div className="social-icons">
-                <img
-                  src={linkedinLogo}
-                  alt="LinkedIn"
-                  onClick={() => navigateToUrl("https://github.com/")}
-                />
-                <img
-                  src={facebookLogo}
-                  alt="Facebook"
-                  className="social-logo"
-                  onClick={() => navigateToUrl("https://www.facebook.com/")}
-                />
-                <img
-                  src={twitterLogo}
-                  alt="Twitter"
-                  onClick={() => navigateToUrl("https://twitter.com/")}
-                />
-                <img
-                  src={discordLogo}
-                  alt="Discord"
-                  onClick={() => navigateToUrl("https://discord.com/")}
-                />
-                <img
-                  src={instagramLogo}
-                  alt="Instagram"
-                  onClick={() => navigateToUrl("https://www.instagram.com/")}
-                />
+                <SocialIcon url="https://linkedin.com" />
+                <SocialIcon url="https://facebook.com" />
+                <SocialIcon url="https://twitter.com" />
+                <SocialIcon url="https://discord.com" />
+                <SocialIcon url="https://instagram.com" />
               </div>
             </div>
           </div>

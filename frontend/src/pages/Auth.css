@@ -17,10 +17,12 @@ body.Signup {
   align-items: center;
   min-height: 100vh;
   background: #02132d;
+  padding: 20px; /* Add padding for smaller screens */
 }
 
 .auth-form {
   display: flex;
+  flex-direction: row; /* Row by default */
   width: 100%;
   max-width: 850px;
   background: sandybrown;
@@ -111,4 +113,22 @@ p {
 a {
   color: black;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .auth-form {
+    flex-direction: column; /* Stack form and image vertically */
+    align-items: center;
+  }
+
+  .login,
+  .pic {
+    width: 100%; /* Full width for both sections */
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .pic img {
+    width: 100%; /* Ensure image fits the container */
+    padding-right: 0; /* Remove right padding for smaller screens */
+  }
 }
