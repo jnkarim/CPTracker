@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { SocialIcon } from "react-social-icons"; // Import SocialIcon from react-social-icons
+import { SocialIcon } from "react-social-icons";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -27,7 +27,7 @@ const Homepage = () => {
   };
 
   const navigateToContest = () => {
-    navigate("/contest"); // Navigate to /contest route
+    navigate("/contest");
   };
 
   const navigateToContactUs = () => {
@@ -68,7 +68,13 @@ const Homepage = () => {
             into a world where every line of code counts, supported by intuitive
             tools and insightful analytics.
           </h2>
-          <button className="half2-login" onClick={() => navigate("/login")}>
+          <button 
+            className="half2-login" 
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/Login");
+            }}
+          >
             Log In
           </button>
         </div>
