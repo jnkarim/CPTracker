@@ -1,38 +1,34 @@
 import express from "express";
-import userRoutes from "./routes/users.js";
-import authRouter from "./routes/auth.js";
-import log from "./middlewares/logger.js";
-import cookieParser from "cookie-parser";
-import mongoose from "mongoose";
-import "dotenv/config";
-import cors from "cors";
+import mongoDB from "./db.js";
+import createUserRouter from "./Routes/CreateUser.js"; // Use import for ES modules
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
-mongoose
-  .connect(process.env.DATABASE_URL)
-  .then(() => console.log("Connected to database"))
-  .catch((err) => console.log(`Error connecting to database ${err}`));
+// Initialize MongoDB connection
+mongoDB();
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+// Middleware to parse JSON request bodies
 app.use(express.json());
-app.use(cookieParser());
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.ALLOWED_ORIGIN,
-  })
-);
-app.use(log);
 
-app.get("/", (req, res) => res.json({ message: "API is working" }));
+// Routes
+app.get("/", (req, res) => {
+  res.send("HELLO WORLD!");
+});
 
-app.use("/users", userRoutes);
+// Use imported router for API routes
+app.use("/api", createUserRouter);
 
-app.use("/auth", authRouter);
-
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
-
-export default app;

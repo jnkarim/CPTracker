@@ -1,50 +1,49 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image from "../assets/login.png"; // Adjust the path as necessary
 import "./Auth.css"; // Adjust the path as necessary
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
-  useEffect(() => {
-    // Apply styles when the component mounts
-    document.body.classList.add("Login");
-    document.documentElement.classList.add("Login");
-
-    // Cleanup styles when the component unmounts
-    return () => {
-      document.body.classList.remove("Login");
-      document.documentElement.classList.remove("Login");
-    };
-  }, []);
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", {
-        username,
-        password,
-      }, {
-        withCredentials: true
+      const response = await fetch("http://localhost:5000/api/loginuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
       });
-      
-      console.log("Response data:", res.data); // Log the response data for debugging
-      
-      if (res.data) {
-        // Handle successful login
-        console.log(res.data);
-        navigate("/profile"); // Redirect to homepage or another route
-      } else {
-        // Handle login error
-        alert(res.data.message || "Login failed. Please try again.");
+
+      const json = await response.json();
+      console.log(json);
+
+      // Check for success flag or errors in response
+      if (!json.success) {
+        alert("Enter Valid Credentials");
+      }
+
+      if (json.success) {
+        localStorage.setItem("authToken", json.authToken);
+        navigate("/");
       }
     } catch (error) {
-      console.error("Login Error:", error);
-      alert("Something went wrong. Please try again.");
+      console.error("Error during fetch:", error);
     }
+  };
+
+  const onChange = (event) => {
+    setCredentials({
+      ...credentials,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -54,25 +53,26 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <h1>Login</h1>
             <hr />
-            <p>Explore the World!</p>
-            <label>Username</label>
+            <p>Explore with us!</p>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              name="email"
+              id="email"
+              value={credentials.email}
+              onChange={onChange}
+              placeholder="Enter your email"
             />
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
-              placeholder="Enter your password!"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              id="password"
+              value={credentials.password}
+              onChange={onChange}
+              placeholder="Enter your password"
             />
             <button type="submit">Submit</button>
-            <p>
-              <a href="#">Forgot Password?</a>
-            </p>
             <p>
               Don't have an account?{" "}
               <Link to="/signup" style={{ color: "aqua" }}>
