@@ -1,32 +1,22 @@
 {
-  "name": "node_express_api",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api/index.js",
-    "dev": "nodemon api/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
-    "connect-mongo": "^5.1.0",
-    "cookie-parser": "^1.4.6",
-    "cookie-session": "^2.1.0",
-    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "express-session": "^1.18.0",
-    "express-validator": "^7.0.1",
+    "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.3",
-    "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
+    "mongoose": "^8.5.2",
+    "nodemon": "^3.1.4"
   }
 }

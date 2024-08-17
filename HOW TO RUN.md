@@ -1,6 +1,5 @@
 After clone this.....
 
-
 1. open new terminal
 2. cd backend
 3. npm install
@@ -11,3 +10,7 @@ After clone this.....
 7. npm install
 8. npm install react-social-icons
 9. npm run dev.
+
+in backend-
+
+1.  npm i bcryptjs jsonwebtoken

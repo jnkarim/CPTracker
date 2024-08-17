@@ -1,50 +1,46 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import image from "../assets/signup.png"; // Adjust the path as necessary
 import "./Auth.css"; // Adjust the path as necessary
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Apply styles when the component mounts
-    document.body.classList.add("Signup");
-    document.documentElement.classList.add("Signup");
-
-    // Cleanup styles when the component unmounts
-    return () => {
-      document.body.classList.remove("Signup");
-      document.documentElement.classList.remove("Signup");
-    };
-  }, []);
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/users", {
-        username,
-        password,
-      }, {
-        withCredentials: true
+      const response = await fetch("http://localhost:5000/api/createuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
       });
 
-      console.log("Response data:", res.data); // Log the response data for debugging
-      
-      if (res.data) {
-        // Handle successful signup
-        console.log(res.data);
-        navigate("/login"); // Redirect to login page
+      const json = await response.json();
+      console.log(json);
+
+      // Check for success flag or errors in response
+      if (!json.success) {
+        alert("Enter Valid Credentials");
       } else {
-        // Handle signup error
-        alert(res.data.message || "Signup failed. Please try again.");
+        // Handle successful response
+        alert("User created successfully!");
       }
     } catch (error) {
-      console.error("Signup Error:", error);
-      alert("Something went wrong. Please try again.");
+      console.error("Error during fetch:", error);
     }
+  };
+
+  const onChange = (event) => {
+    setCredentials({
+      ...credentials,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -55,19 +51,32 @@ const Signup = () => {
             <h1>Signup</h1>
             <hr />
             <p>Join Us!</p>
-            <label>Username</label>
+            <label htmlFor="name">Username</label>
             <input
               type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              name="name"
+              id="name"
+              value={credentials.name}
+              onChange={onChange}
+              placeholder="Enter your username"
             />
-            <label>Password</label>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={credentials.email}
+              onChange={onChange}
+              placeholder="Enter your email"
+            />
+            <label htmlFor="password">Password</label>
             <input
               type="password"
-              placeholder="Enter your password!"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              id="password"
+              value={credentials.password}
+              onChange={onChange}
+              placeholder="Enter your password"
             />
             <button type="submit">Submit</button>
             <p>
