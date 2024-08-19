@@ -64,6 +64,25 @@
   color: #58b6ab;
 }
 
+.nav-auth {
+  display: flex;
+  cursor: pointer;
+}
+
+.auth-link {
+  font-weight: bold;
+  font-size: 30px;
+  background-color: sandybrown;
+  color: #02132d;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.auth-link:hover {
+  background-color: #58b6ab;
+}
+
 .hamburger {
   display: none;
   font-size: 30px;

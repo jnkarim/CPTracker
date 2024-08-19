@@ -1,6 +1,7 @@
 import express from "express";
 import mongoDB from "./db.js";
-import createUserRouter from "./Routes/CreateUser.js"; // Use import for ES modules
+import createUserRouter from "./Routes/CreateUser.js";
+import displayDataRouter from "./Routes/DisplayData.js"; // Import the DisplayData route
 
 const app = express();
 const PORT = 5000;
@@ -25,8 +26,9 @@ app.get("/", (req, res) => {
   res.send("HELLO WORLD!");
 });
 
-// Use imported router for API routes
+// Use imported routers for API routes
 app.use("/api", createUserRouter);
+app.use("/api", displayDataRouter); // Use the imported router
 
 // Start the server
 app.listen(PORT, () => {
