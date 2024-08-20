@@ -10,7 +10,7 @@ const PORT = 5000;
 // Initialize MongoDB connection
 mongoDB();
 app.use(cors());
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://cp-tracker-frontend.vercel.app");
   res.header(
     "Access-Control-Allow-Headers",
@@ -18,6 +18,7 @@ app.use((req, res, next) => {
   );
   next();
 });
+*/
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
