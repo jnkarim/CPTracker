@@ -14,3 +14,8 @@ After clone this.....
 in backend-
 
 1.  npm i bcryptjs jsonwebtoken
+
+Things to install-
+
+1. npm install recharts
+2. in backend- npm i bcryptjs jsonwebtoken

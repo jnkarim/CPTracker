@@ -7,9 +7,14 @@
 
 /* Reset margin and padding for the body */
 body {
-  margin: 0;
+  margin-top: 30px;
   padding: 0;
   font-family: Arial, sans-serif; /* Adding a default font-family */
+  color: #fff;
+}
+
+.highlight {
+  color: rgb(255, 122, 60);
 }
 
 /* Section styles */
@@ -20,6 +25,8 @@ body {
   width: 100%;
   display: flex;
   height: 350px; /* Adjust height as needed */
+  font-size: 30px;
+  font-family: "Brush Script MT", cursive;
 }
 
 /* Half sections */
@@ -54,91 +61,74 @@ body {
   font-size: 50px;
   margin: 0;
   line-height: 1.4;
-  text-align: left; /* Align heading text to the left */
+  color: wheat; /* White text color */
   font-family: "Brush Script MT", cursive;
 }
 
 .half2 h2 {
-  font-size: 24px; /* Adjusted font size for smaller screens */
-  line-height: 1.4; /* Adjusted line height for readability */
-  text-align: left; /* Align text to the left */
-  max-width: 350px; /* Ensure the heading splits into two lines */
+  font-size: 25px;
+  margin-top: 80px;
+  line-height: 1.5;
+  color: whitesmoke;
+  text-align: left;
 }
 
 .half2-login {
-  font-size: 25px;
-  padding: 12px 24px;
-  background-color: dodgerblue;
-  color: #fff;
-  border: none;
-  border-radius: 50px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 8px 25px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: left; /* Align button text to the left */
-  width: 25%;
+  font-size: 18px;
+  margin-top: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
 }
 
-.highlight {
-  color: sandybrown; /* Change as needed */
-  padding: 0 5px; /* Adjust padding for better appearance */
+.half2-login:hover {
+  background-color: white;
+  color: black;
 }
 
+/* Wave styles */
 .wave {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: auto; /* Adjust height as needed */
+  height: auto;
 }
 
-/* Sections 2 and 3 */
+/* Section 2 */
 .section2 {
-  background-color: white; /* Adjust as needed */
-  width: 100%;
-  height: 700px;
-  padding-top: 150px;
+  background-color: #02132d;
+  padding: 20px;
+  text-align: center;
+  height: 500px;
 }
 
 .content-sec2 {
-  text-align: center;
+  color: wheat;
   font-size: 50px;
-  font-family: "Brush Script MT", cursive;
-  text-decoration: underline;
-  background-color: white;
-  padding-top: 40px;
-}
-
-/* Bio */
-.bio {
-  width: 100%;
-  background-color: transparent;
-  color: white;
+  font-weight: 600;
+  padding: 30px 0px;
   text-align: center;
-  padding: 20px;
-}
-
-.bio-heading {
-  font-size: 40px;
-  line-height: 1.3;
-}
-
-.bio-subheading {
-  font-size: 24px;
-  line-height: 1.4;
-  margin-top: 10px;
+  background-color: #02132d;
+  font-family: "Brush Script MT", cursive;
 }
 
 .platform-box {
-  background-color: sandybrown; /* Adjust color as needed */
-  border: 10px solid black;
-  border-radius: 10px;
-  padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 200px; /* Decreased width */
-  margin: 0 auto;
-  margin-bottom: 25px;
-  height: 320px;
+  padding: 20px;
+  background-color: sandybrown;
+  border: 10px solid black;
+  border-radius: 20px;
+  margin: 0 20px;
+  max-width: 700px; /* Increased width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .platform-box img {
@@ -147,213 +137,244 @@ body {
 }
 
 .platform-box h2 {
-  font-size: 24px;
-  margin: 10px 0;
+  font-size: 27px;
+  margin-bottom: 10px;
+  color: #02132d;
+}
+
+.platform-box .logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  margin-left: 280px;
 }
 
 .platform-box p {
-  font-size: 20px;
-  margin: 10px 0;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .platform-button {
-  font-size: 18px;
+  background-color: #02132d;
+  color: white;
   padding: 10px 20px;
-  background-color: black;
-  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .platform-button:hover {
-  background-color: #02132d;
+  background-color: #fff;
+  color: #02132d;
 }
 
+/* Section 3 */
 .section3 {
-  background-color: #02132d; /* Adjust as needed */
-  width: 100%;
-  height: 400px;
-  padding-top: 20px;
-}
-
-/* Contest Box */
-.contest-box {
-  background-color: sandybrown; /* Adjust color as needed */
-  border: 10px solid black;
-  border-radius: 10px;
-  padding: 30px;
+  background-color: white;
+  padding: 80px 20px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 35%;
-  height: 220px;
-  margin: 0 auto;
 }
 
-.contest-box h2 {
+.bio-subheading {
+  font-size: 40px;
+  color: #02132d;
+  margin-bottom: 50px;
+}
+
+.contest-box {
+  display: inline-block;
+  text-align: center;
+  background-color: #02132d;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.contest-heading {
+  color: white;
   font-size: 24px;
-  margin: 10px 0;
+  margin-bottom: 15px;
 }
 
-.contest-box p {
+.contest-description {
+  color: white;
   font-size: 16px;
-  margin: 10px 0;
+  margin-bottom: 20px;
 }
 
 .contest-button {
-  font-size: 18px;
+  background-color: white;
+  color: #02132d;
   padding: 10px 20px;
-  background-color: black;
-  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .contest-button:hover {
   background-color: #02132d;
+  color: white;
 }
 
+/* Footer styles */
 .footer {
-  background: black;
-  color: #fff;
-  padding: 40px;
+  background-color: #02132d;
+  padding: 20px;
+  color: white;
   text-align: center;
 }
 
 .footer-content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
-  margin-top: 20px; /* Add space above the content */
+  margin-bottom: 20px;
 }
 
-.footer-logo {
-  width: 50px;
-  height: 50px;
+.footer-left {
+  text-align: left;
+  margin-right: 30px;
+}
+
+.footer-left h3 {
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
-.footer-left,
-.footer-right {
-  flex: 1;
-  min-width: 250px; /* Set a minimum width for footer sections */
-  margin-bottom: 20px; /* Add space between sections */
+.footer-left p {
+  font-size: 14px;
 }
 
 .footer-right {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .footer-section {
-  flex: 1;
-  margin: 0 20px; /* Add space between footer sections */
+  text-align: left;
 }
 
 .footer-section h4 {
+  font-size: 16px;
   margin-bottom: 10px;
-  font-size: 18px;
 }
 
-.footer-section p {
-  margin-bottom: 8px;
+.footer-section button {
+  display: block;
+  background: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 0;
+  text-align: left;
+  border: none;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-section button:hover {
+  color: sandy brown;
 }
 
 .social-icons {
   display: flex;
   gap: 10px;
-  justify-content: center;
 }
 
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
+/* Animations */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
-.social-icons img:hover {
-  opacity: 0.7;
-}
-
-.footer p {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-/* Media Queries for Mobile */
-@media (max-width: 768px) {
-  .section1 {
-    flex-direction: column;
-    padding: 20px;
-    height: auto;
-    align-items: center;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .half1,
   .half2 {
     width: 100%;
-    height: auto;
     display: block;
   }
 
-  .half1 {
-    height: 300px;
-  }
-
-  .half2 {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .half2-heading {
-    font-size: 40px;
-    margin: 0 auto;
-  }
-
-  .half2 h2 {
-    font-size: 18px;
-    line-height: 1.3;
-    margin-bottom: 10px;
-    max-width: 100%;
+  .half2 .half2-heading {
+    font-size: 30px;
   }
 
   .half2-login {
-    font-size: 20px;
-    width: 50%;
-    margin: 20px auto 0;
-    text-align: center;
+    font-size: 16px;
   }
 
   .platform-box {
-    width: 90%;
-    height: auto;
-  }
-
-  .contest-box {
-    width: 90%;
-    height: auto;
-    margin: 20px auto;
+    margin-bottom: 30px;
   }
 
   .footer-content {
     flex-direction: column;
     align-items: center;
+  }
+
+  .footer-left {
+    margin-right: 0;
     text-align: center;
   }
 
-  .footer-left,
   .footer-right {
-    width: 100%;
-    margin-bottom: 20px;
+    justify-content: center;
     text-align: center;
-  }
-
-  .footer-section {
-    margin: 10px 0;
   }
 }
