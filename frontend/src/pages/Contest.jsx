@@ -1,5 +1,3 @@
-// Contest.jsx
-
 import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
@@ -9,6 +7,8 @@ import "./Contest.css";
 
 const Contest = () => {
   const [contests, setContests] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchContests();
@@ -27,11 +27,14 @@ const Contest = () => {
           (a, b) => a.startTimeSeconds - b.startTimeSeconds
         );
         setContests(upcomingContests);
+        setLoading(false);
       } else {
-        console.error("Failed to fetch contests");
+        setError("Failed to fetch contests.");
+        setLoading(false);
       }
     } catch (error) {
-      console.error("Error fetching contests:", error);
+      setError("Error fetching contests. Please try again later.");
+      setLoading(false);
     }
   };
 
@@ -45,36 +48,47 @@ const Contest = () => {
   return (
     <div className="contest-container">
       <h2 className="contest-title">Upcoming Contests (Codeforces)</h2>
-      {contests.map((contest) => (
-        <CSSTransition
-          key={contest.id}
-          in={true}
-          appear={true}
-          timeout={500}
-          classNames="transition-item"
-        >
-          <div className="contest-item">
-            <div className="contest-details">
-              <h3>{contest.name}</h3>
-              <p>
-                Starts in: {calculateTimeRemaining(contest.startTimeSeconds)}
-              </p>
-              <p>
-                Duration:{" "}
-                {moment.duration(contest.durationSeconds, "seconds").humanize()}
-              </p>
-              <Link
-                className="btn"
-                to={`https://codeforces.com/contest/${contest.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Join Contest
-              </Link>
+
+      {loading ? (
+        <div className="loading-spinner">Loading...</div>
+      ) : error ? (
+        <div className="error-message">{error}</div>
+      ) : contests.length > 0 ? (
+        contests.map((contest) => (
+          <CSSTransition
+            key={contest.id}
+            in={true}
+            appear={true}
+            timeout={500}
+            classNames="transition-item"
+          >
+            <div className="contest-item">
+              <div className="contest-details">
+                <h3>{contest.name}</h3>
+                <p>
+                  Starts in: {calculateTimeRemaining(contest.startTimeSeconds)}
+                </p>
+                <p>
+                  Duration:{" "}
+                  {moment
+                    .duration(contest.durationSeconds, "seconds")
+                    .humanize()}
+                </p>
+                <Link
+                  className="btn"
+                  to={`https://codeforces.com/contest/${contest.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join Contest
+                </Link>
+              </div>
             </div>
-          </div>
-        </CSSTransition>
-      ))}
+          </CSSTransition>
+        ))
+      ) : (
+        <div className="no-contests">No upcoming contests found.</div>
+      )}
     </div>
   );
 };

@@ -6,6 +6,8 @@
     "express-validator": "^7.2.0",
     "mongodb": "^6.8.0",
     "nodemon": "^3.1.4",
-    "react-social-icons": "^6.18.0"
+    "prop-types": "^15.8.1",
+    "react-social-icons": "^6.18.0",
+    "recharts": "^2.12.7"
   }
 }

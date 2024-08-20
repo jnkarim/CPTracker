@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { SocialIcon } from "react-social-icons";
 import Slider from "react-slick";
+import { SocialIcon } from "react-social-icons";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import logo2 from "../assets/codechef.png";
@@ -51,7 +51,7 @@ const Homepage = () => {
         <div className="bio animated fadeIn">
           <h1 className="bio-heading">
             One place for all your{" "}
-            <span className="highlight">CODING PLATFORM</span> needs!
+            <span className="highlight">CODING PLATFORM</span> REQUIRES!
           </h1>
         </div>
       </div>
@@ -68,8 +68,8 @@ const Homepage = () => {
             into a world where every line of code counts, supported by intuitive
             tools and insightful analytics.
           </h2>
-          <button 
-            className="half2-login" 
+          <button
+            className="half2-login"
             onClick={(e) => {
               e.stopPropagation();
               navigate("/Login");

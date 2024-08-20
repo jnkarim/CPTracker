@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+// Navbar.jsx
+
+import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const navigate = useNavigate(); // Moved useNavigate inside the Navbar component
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in when the component mounts
+    if (localStorage.getItem("authToken")) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
@@ -13,6 +23,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+    setIsAuthenticated(false); // Update authentication state
     navigate("/login");
   };
 
@@ -58,7 +69,13 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {!localStorage.getItem("authToken") ? (
+        {isAuthenticated ? (
+          <div className="nav-auth">
+            <span className="auth-link" onClick={handleLogout}>
+              Log Out
+            </span>
+          </div>
+        ) : (
           <div className="nav-auth">
             <Link
               className="auth-link"
@@ -67,12 +84,6 @@ const Navbar = () => {
             >
               Log in
             </Link>
-          </div>
-        ) : (
-          <div className="nav-auth">
-            <span className="auth-link" onClick={handleLogout}>
-              Log Out
-            </span>
           </div>
         )}
       </div>

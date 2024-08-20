@@ -1,38 +1,46 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import image from "../assets/login.png"; // Adjust the path as necessary
-import "./Auth.css"; // Adjust the path as necessary
+import image from "../assets/login.png";
+import { useAuth } from "../context/auth";
+import "./Auth.css";
 
 const Login = () => {
+  const [auth, setAuth] = useAuth();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
-
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/loginuser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
+      const response = await fetch(
+        "https://cp-tracker-backend.vercel.app/api/loginuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        }
+      );
 
       const json = await response.json();
       console.log(json);
 
-      // Check for success flag or errors in response
       if (!json.success) {
         alert("Enter Valid Credentials");
-      }
-
-      if (json.success) {
-        localStorage.setItem("authToken", json.authToken);
-        navigate("/");
+      } else {
+        setAuth({
+          ...auth,
+          user: json.user, // Corrected
+          token: json.authToken, // Corrected
+        });
+        console.log(auth);
+        localStorage.setItem("auth", JSON.stringify(json)); // Corrected
+        navigate("/"); // Redirect to home
+        window.location.reload(); // Force a reload to trigger navbar update
       }
     } catch (error) {
       console.error("Error during fetch:", error);

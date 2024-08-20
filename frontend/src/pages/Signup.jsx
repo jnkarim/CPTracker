@@ -1,35 +1,44 @@
+// Signup.jsx
+
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import image from "../assets/signup.png"; // Adjust the path as necessary
-import "./Auth.css"; // Adjust the path as necessary
+import { Link, useNavigate } from "react-router-dom";
+import image from "../assets/signup.png";
+import "./Auth.css";
 
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
     password: "",
+    codeforcesUsername: "",
   });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/createuser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
+      const response = await fetch(
+        "https://cp-tracker-backend.vercel.app/api/createuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        }
+      );
 
       const json = await response.json();
       console.log(json);
 
-      // Check for success flag or errors in response
       if (!json.success) {
         alert("Enter Valid Credentials");
       } else {
-        // Handle successful response
         alert("User created successfully!");
+        localStorage.setItem("authToken", json.authToken);
+        navigate("/profile"); // Redirect to profile page
+        window.location.reload(); // Force a reload to trigger navbar update
       }
     } catch (error) {
       console.error("Error during fetch:", error);
@@ -78,6 +87,16 @@ const Signup = () => {
               onChange={onChange}
               placeholder="Enter your password"
             />
+            <label htmlFor="codeforcesUsername">Codeforces Username</label>
+            <input
+              type="text"
+              name="codeforcesUsername"
+              id="codeforcesUsername"
+              value={credentials.codeforcesUsername}
+              onChange={onChange}
+              placeholder="Enter your Codeforces username"
+            />
+
             <button type="submit">Submit</button>
             <p>
               Already have an account?{" "}

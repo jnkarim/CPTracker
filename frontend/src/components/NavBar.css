@@ -31,7 +31,7 @@
   font-size: 50px;
   color: whitesmoke;
   font-family: "Playwrite NG Modern", cursive;
-  color: sandybrown;
+  color: rgb(255, 122, 60);
 }
 
 .nav-ul {
@@ -72,7 +72,7 @@
 .auth-link {
   font-weight: bold;
   font-size: 30px;
-  background-color: sandybrown;
+  background-color: rgb(255, 122, 60);
   color: #02132d;
   padding: 5px 10px;
   text-decoration: none;
