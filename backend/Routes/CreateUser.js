@@ -14,8 +14,8 @@ router.post(
   [
     body("email").isEmail().withMessage("Enter a valid email address"),
     body("name")
-      .isLength({ min: 5 })
-      .withMessage("Name must be at least 5 characters long"),
+      .isLength({ min: 4 })
+      .withMessage("Name must be at least 4 characters long"),
     body("password")
       .isLength({ min: 5 })
       .withMessage("Password must be at least 5 characters long"),
@@ -27,7 +27,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, codeforcesUsername} = req.body;
 
     try {
       // Check if the user already exists
@@ -47,6 +47,7 @@ router.post(
         name,
         email,
         password: secPassword,
+        codeforcesUsername,
       });
 
       res.json({ success: true });
@@ -64,8 +65,8 @@ router.post(
   [
     body("email").isEmail().withMessage("Enter a valid email address"),
     body("password")
-      .isLength({ min: 5 })
-      .withMessage("Password must be at least 5 characters long"),
+      .isLength({ min: 4 })
+      .withMessage("Password must be at least 4 characters long"),
   ],
   async (req, res) => {
     // Validate input
@@ -99,7 +100,15 @@ router.post(
       };
 
       const authToken = jwt.sign(data, jwtSecret);
-      res.json({ success: true, authToken });
+      res.json({ success: true,
+        user: {
+          _id: userData._id,
+          name: userData.name,
+          email: userData.email,
+          codeforcesUsername: userData.codeforcesUsername,
+          
+        },
+        authToken });
     } catch (error) {
       console.error("Error during login process:", error.message);
       res.status(500).json({ success: false, error: "Internal Server Error" });
