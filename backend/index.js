@@ -2,13 +2,14 @@ import express from "express";
 import mongoDB from "./db.js";
 import createUserRouter from "./Routes/CreateUser.js";
 import displayDataRouter from "./Routes/DisplayData.js"; // Import the DisplayData route
-
+// const cors = require('cors');
+import cors from 'cors';
 const app = express();
 const PORT = 5000;
 
 // Initialize MongoDB connection
 mongoDB();
-
+app.use(cors());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
   res.header(
