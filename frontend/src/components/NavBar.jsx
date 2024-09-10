@@ -1,5 +1,3 @@
-// Navbar.jsx
-
 import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,9 +10,22 @@ const Navbar = () => {
 
   useEffect(() => {
     // Check if the user is logged in when the component mounts
-    if (localStorage.getItem("authToken")) {
-      setIsAuthenticated(true);
-    }
+    const checkAuthToken = () => {
+      if (localStorage.getItem("authToken")) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuthToken();
+
+    // Listen for changes in localStorage to update authentication state
+    window.addEventListener("storage", checkAuthToken);
+
+    return () => {
+      window.removeEventListener("storage", checkAuthToken);
+    };
   }, []);
 
   const handleToggle = () => {
