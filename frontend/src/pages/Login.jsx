@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import image from "../assets/login.png";
 import { useAuth } from "../context/auth";
+import image from "../assets/login.png";
 import "./Auth.css";
 
 const Login = () => {
@@ -33,14 +33,11 @@ const Login = () => {
         alert("Enter Valid Credentials");
       } else {
         setAuth({
-          ...auth,
-          user: json.user, // Corrected
-          token: json.authToken, // Corrected
+          user: json.user,
+          token: json.authToken,
         });
-        console.log(auth);
-        localStorage.setItem("auth", JSON.stringify(json)); // Corrected
+        localStorage.setItem("auth", JSON.stringify(json));
         navigate("/"); // Redirect to home
-        window.location.reload(); // Force a reload to trigger navbar update
       }
     } catch (error) {
       console.error("Error during fetch:", error);
