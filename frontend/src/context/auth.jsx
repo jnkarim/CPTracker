@@ -1,5 +1,5 @@
 import axios from "axios";
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
@@ -10,7 +10,13 @@ const AuthProvider = ({ children }) => {
     token: "",
   });
 
-  axios.defaults.headers.common["Authorization"] = auth?.token;
+  // Update axios headers when auth state changes
+  useEffect(() => {
+    axios.defaults.headers.common["Authorization"] = auth.token;
+
+    // Save auth state to localStorage
+    localStorage.setItem("auth", JSON.stringify(auth));
+  }, [auth]);
 
   useEffect(() => {
     const data = localStorage.getItem("auth");
@@ -22,7 +28,6 @@ const AuthProvider = ({ children }) => {
         token: parseData.token,
       });
     }
-    //eslint-disable-next-line
   }, []);
 
   return (
@@ -32,12 +37,10 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-// Define propTypes for AuthProvider
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// Custom hook
 const useAuth = () => useContext(AuthContext);
 
 export { AuthProvider, useAuth };
