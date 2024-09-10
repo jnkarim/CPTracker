@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+// Navbar.jsx
+
+import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "./auth"; // Adjust import based on file structure
 import "./NavBar.css";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [auth, setAuth] = useAuth();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in when the component mounts
+    if (localStorage.getItem("authToken")) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
   };
 
   const handleLogout = () => {
-    setAuth({
-      user: null,
-      token: "",
-    });
-    localStorage.removeItem("auth");
+    localStorage.removeItem("authToken");
+    setIsAuthenticated(false); // Update authentication state
     navigate("/login");
   };
 
@@ -36,23 +41,35 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="link" to="/contest" onClick={() => setIsMobile(false)}>
+            <Link
+              className="link"
+              to="/contest"
+              onClick={() => setIsMobile(false)}
+            >
               Contests
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="link" to="/profile" onClick={() => setIsMobile(false)}>
+            <Link
+              className="link"
+              to="/profile"
+              onClick={() => setIsMobile(false)}
+            >
               Profile
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="link" to="/blogs" onClick={() => setIsMobile(false)}>
+            <Link
+              className="link"
+              to="/blogs"
+              onClick={() => setIsMobile(false)}
+            >
               Blogs
             </Link>
           </li>
         </ul>
 
-        {auth.token ? (
+        {isAuthenticated ? (
           <div className="nav-auth">
             <span className="auth-link" onClick={handleLogout}>
               Log Out
@@ -60,7 +77,11 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="nav-auth">
-            <Link className="auth-link" to="/login" onClick={() => setIsMobile(false)}>
+            <Link
+              className="auth-link"
+              to="/login"
+              onClick={() => setIsMobile(false)}
+            >
               Log in
             </Link>
           </div>
