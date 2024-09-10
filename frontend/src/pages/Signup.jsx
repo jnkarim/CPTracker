@@ -1,3 +1,5 @@
+// Signup.jsx
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image from "../assets/signup.png";
@@ -34,11 +36,9 @@ const Signup = () => {
         alert("Enter Valid Credentials");
       } else {
         alert("User created successfully!");
-        localStorage.setItem("auth", JSON.stringify({
-          user: json.user,
-          token: json.authToken,
-        }));
+        localStorage.setItem("authToken", json.authToken);
         navigate("/profile"); // Redirect to profile page
+        window.location.reload(); // Force a reload to trigger navbar update
       }
     } catch (error) {
       console.error("Error during fetch:", error);
