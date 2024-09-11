@@ -27,30 +27,32 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      try {
-        // Fetching Codeforces data
-        const codeforcesResponse = await fetch(
-          `https://codeforces.com/api/user.info?handles=${auth.user.codeforcesUsername}`
-        );
-        const codeforcesData = await codeforcesResponse.json();
+      if (auth.user && auth.user.codeforcesUsername) {
+        try {
+          // Fetching Codeforces data
+          const codeforcesResponse = await fetch(
+            `https://codeforces.com/api/user.info?handles=${auth.user.codeforcesUsername}`
+          );
+          const codeforcesData = await codeforcesResponse.json();
 
-        // Fetch Codeforces Contest Data
-        const codeforcesContestResponse = await fetch(
-          `https://codeforces.com/api/user.rating?handle=${auth.user.codeforcesUsername}`
-        );
-        const codeforcesContestData = await codeforcesContestResponse.json();
+          // Fetch Codeforces Contest Data
+          const codeforcesContestResponse = await fetch(
+            `https://codeforces.com/api/user.rating?handle=${auth.user.codeforcesUsername}`
+          );
+          const codeforcesContestData = await codeforcesContestResponse.json();
 
-        setUserData({
-          codeforces: codeforcesData.result[0],
-          codeforcesContests: codeforcesContestData.result,
-        });
-      } catch (error) {
-        console.error("Error fetching user data", error);
+          setUserData({
+            codeforces: codeforcesData.result[0],
+            codeforcesContests: codeforcesContestData.result,
+          });
+        } catch (error) {
+          console.error("Error fetching user data", error);
+        }
       }
     };
 
     fetchUserData();
-  }, [auth]);
+  }, [auth.user]);
 
   return (
     <div className="profile-container">
