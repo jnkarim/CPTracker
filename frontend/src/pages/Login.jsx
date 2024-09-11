@@ -1,11 +1,13 @@
+//Login.jsx
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image from "../assets/login.png";
-import { useAuth } from "../context/auth";
+//import { useAuth } from "../context/auth";
 import "./Auth.css";
 
 const Login = () => {
-  const [auth, setAuth] = useAuth();
+  //const [auth, setAuth] = useAuth();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -32,14 +34,15 @@ const Login = () => {
       if (!json.success) {
         alert("Enter Valid Credentials");
       } else {
-        setAuth({
+        /*setAuth({
           ...auth,
           user: json.user, // Corrected
           token: json.authToken, // Corrected
         });
-        console.log(auth);
+        console.log(auth);*/
+        alert("User created successfully!");
         localStorage.setItem("auth", JSON.stringify(json)); // Corrected
-        navigate("/"); // Redirect to home
+        navigate("/profile"); // Redirect to home
         window.location.reload(); // Force a reload to trigger navbar update
       }
     } catch (error) {
