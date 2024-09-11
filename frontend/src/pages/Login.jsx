@@ -40,7 +40,7 @@ const Login = () => {
           token: json.authToken, // Corrected
         });
         console.log(auth);*/
-        alert("User created successfully!");
+        alert("User logged in successfully!");
         localStorage.setItem("auth", JSON.stringify(json)); // Corrected
         navigate("/profile"); // Redirect to home
         window.location.reload(); // Force a reload to trigger navbar update
