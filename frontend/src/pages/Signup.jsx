@@ -1,8 +1,7 @@
-// Signup.jsx
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image from "../assets/signup.png";
+import { useAuth } from "../context/auth";
 import "./Auth.css";
 
 const Signup = () => {
@@ -14,20 +13,18 @@ const Signup = () => {
   });
 
   const navigate = useNavigate();
+  const [auth, setAuth] = useAuth(); // Get auth and setAuth from context
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://cp-tracker-backend.vercel.app/api/createuser",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(credentials),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/createuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
 
       const json = await response.json();
       console.log(json);
@@ -36,9 +33,16 @@ const Signup = () => {
         alert("Enter Valid Credentials");
       } else {
         alert("User created successfully!");
-        localStorage.setItem("authToken", json.authToken);
+        const newAuth = {
+          user: {
+            ...credentials,
+            token: json.authToken,
+          },
+          token: json.authToken,
+        };
+        setAuth(newAuth); // Update context
+        localStorage.setItem("auth", JSON.stringify(newAuth)); // Save to localStorage
         navigate("/profile"); // Redirect to profile page
-        window.location.reload(); // Force a reload to trigger navbar update
       }
     } catch (error) {
       console.error("Error during fetch:", error);

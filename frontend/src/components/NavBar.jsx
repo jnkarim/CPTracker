@@ -1,30 +1,22 @@
-// Navbar.jsx
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/auth"; // Ensure the path to your context is correct
 import "./NavBar.css";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [auth, setAuth] = useAuth(); // Use AuthContext
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Check if the user is logged in when the component mounts
-    if (localStorage.getItem("authToken")) {
-      setIsAuthenticated(true);
-    }
-  }, []);
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    setIsAuthenticated(false); // Update authentication state
-    navigate("/login");
+    localStorage.removeItem("authToken"); // Clear localStorage
+    setAuth({ user: null, token: "" }); // Clear auth context state
+    navigate("/login"); // Redirect to login page
   };
 
   return (
@@ -69,19 +61,16 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {isAuthenticated ? (
+        {auth.user ? ( // If user is logged in, show logout
           <div className="nav-auth">
             <span className="auth-link" onClick={handleLogout}>
               Log Out
             </span>
           </div>
         ) : (
+          // Otherwise, show login
           <div className="nav-auth">
-            <Link
-              className="auth-link"
-              to="/login"
-              onClick={() => setIsMobile(false)}
-            >
+            <Link className="auth-link" to="/login">
               Log in
             </Link>
           </div>

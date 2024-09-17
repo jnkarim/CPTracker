@@ -184,11 +184,12 @@ const Homepage = () => {
             <div className="footer-section">
               <h4>Connect</h4>
               <button onClick={() => navigate("/feedback")}>Feedback</button>
+
               <button onClick={navigateToContactUs}>Contact Us</button>
-              <button onClick={() => navigate("/about")}>
+              <button onClick={() => navigate("/aboutcptracker")}>
                 About CPTracker
               </button>
-              <button onClick={() => navigate("/discord")}>
+              <button onClick={() => navigate("/joindiscord")}>
                 Join our Discord
               </button>
             </div>
