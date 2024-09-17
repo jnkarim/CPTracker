@@ -1,0 +1,191 @@
+/* Global styles */
+.contact-container {
+    padding: 20px;
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .header h1 {
+    font-size: 48px;
+    color: #ffffff;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+  
+  .header p {
+    font-size: 24px;
+    color: #cccccc;
+    margin: 10px 0 0;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    margin-bottom: 40px;
+  }
+  
+  .mission-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .mission-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #cccccc;
+  }
+  
+  /* What We Do Section */
+  .what-we-do {
+    margin-bottom: 40px;
+  }
+  
+  .what-we-do h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .boxes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .box {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 30%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .box p {
+    font-size: 18px;
+    color: #cccccc;
+  }
+  
+  /* Hover effect for boxes */
+  .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    background-color: #333333;
+  }
+  
+  /* Mission Section Hover Animation */
+  .mission-section:hover h2 {
+    color: #f39c12; /* Highlight color */
+  }
+  
+  /* What We Do Section Hover Animation */
+  .what-we-do:hover h2 {
+    color: #f39c12; /* Highlight color */
+  }
+  
+  /* Contributors Section */
+  .contributors-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .contributors-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .contributors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .contributor-card {
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 30%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contributor-photo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contributor-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .contact-details a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contact-details a i {
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-details a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+  }
+  
+  .contact-details a:hover i {
+    color: #f39c12; /* Highlight color for icons */
+  }
+  
+  /* Hover effect for contributor cards */
+  .contributor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    background-color: #444444;
+  }
+  
+  /* Contributor photo zoom effect */
+  .contributor-card:hover .contributor-photo {
+    transform: scale(1.1);
+  }
+  
+  /* Font Awesome styles */
+  .fab.fa-facebook {
+    color: #4267B2; /* Facebook blue */
+  }
+  
+  .fas.fa-envelope {
+    color: #EA4335; /* Gmail red */
+  }
+  
