@@ -1,0 +1,156 @@
+/* Full-screen section with centered content */
+.join-discord-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1f2833, #0b0c10); /* Darker, sleek gradient */
+    padding: 20px;
+    animation: fadeInSection 2s ease-in-out;
+  }
+  
+  @keyframes fadeInSection {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Discord card styling */
+  .join-discord-card {
+    background-color: #1b1f3a; /* Dark blue */
+    border-radius: 16px;
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    color: #ffffff;
+    animation: slideUpCard 1.5s ease;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  @keyframes slideUpCard {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .join-discord-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Discord logo with bounce animation */
+  .join-discord-logo {
+    font-size: 5rem;
+    color: #7289DA;
+    margin-bottom: 20px;
+  }
+  
+  .bounce-logo {
+    animation: bounce 3s infinite ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  /* Title styling with animation */
+  .fade-in-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInText 1.5s ease;
+  }
+  
+  @keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Paragraph styling */
+  .fade-in-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #d1d1d1;
+    line-height: 1.7;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInText 2s ease;
+  }
+  
+  /* CP platform icons with rotate effect */
+  .cp-platform-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    animation: fadeInIcons 2s ease;
+  }
+  
+  @keyframes fadeInIcons {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .cp-icon {
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .rotate-icon:hover {
+    transform: rotate(20deg);
+  }
+  
+  /* Button with pulse effect */
+  .join-discord-btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.6);
+  }
+  
+  .pulse-button {
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .join-discord-btn:hover {
+    background-color: #ff4f4f;
+    transform: translateY(-3px);
+  }
+  
+  .join-discord-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0px 3px 10px rgba(255, 107, 107, 0.4);
+  }
+  
+  /* Media query for mobile responsiveness */
+  @media screen and (max-width: 768px) {
+    .join-discord-card {
+      padding: 30px;
+    }
+    .join-discord-card h1 {
+      font-size: 2rem;
+    }
+    .join-discord-card p {
+      font-size: 1rem;
+    }
+    .join-discord-btn {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+    }
+  }
+  
