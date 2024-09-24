@@ -1,9 +1,10 @@
+/* Basic Styles */
 body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: Arial, sans-serif;
-  background-color: #02132d;
+  background-color: #02132d; /* Original dark background */
 }
 
 .header {
@@ -18,12 +19,12 @@ body {
   font-size: 48px;
   margin-bottom: 10px;
   text-decoration: underline;
-  color: rgb(255, 122, 60);
+  color: #ff7a3c; /* Orange text for better contrast on dark background */
 }
 
 .header p {
   font-size: 18px;
-  color: rgb(255, 128, 24);
+  color: #ff8018; /* Lighter orange for contrast */
   margin-bottom: 20px;
 }
 
@@ -36,7 +37,7 @@ body {
 .search-container {
   margin-bottom: 20px;
   text-align: center;
-  animation: slideIn 0.5s ease-in-out 0.2s;
+  animation: zoomIn 0.5s ease-in-out 0.2s;
   animation-fill-mode: both;
 }
 
@@ -49,40 +50,48 @@ body {
   margin-right: 10px;
 }
 
+.search-box:focus {
+  border-color: #ff8018; /* Orange border on focus */
+}
+
 .search-button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #2e0080;
-  color: #fff;
+  background-color: #2e0080; /* Dark purple for button */
+  color: #fff; /* White text */
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .search-button:hover {
   background-color: black;
+  transform: scale(1.05);
 }
 
 .blog-list {
   margin-top: 20px;
-  animation: slideIn 0.5s ease-in-out 0.4s;
+  animation: fadeIn 0.7s ease-in-out 0.4s;
   animation-fill-mode: both;
 }
 
 .blog-item {
   display: flex;
-  background-color: rgb(255, 255, 255); /* White background */
-  border: 1px solid #e69600;
+  background-color: #ffffff; /* White blog background */
+  border: 1px solid #ff8018;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
   cursor: pointer;
-  animation: slideIn 0.5s ease-in-out 0.6s;
+  animation: slideInRight 0.5s ease-in-out 0.6s;
   animation-fill-mode: both;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .blog-item:hover {
-  background-color: #2e0080; /* Darker purple on hover */
+  background-color: #2e0080; /* Dark purple hover */
+  transform: scale(1.05);
 }
 
 .blog-image {
@@ -90,6 +99,11 @@ body {
   height: auto;
   border-radius: 5px;
   margin-right: 20px;
+  transition: transform 0.3s;
+}
+
+.blog-item:hover .blog-image {
+  transform: scale(1.1);
 }
 
 .blog-info {
@@ -99,21 +113,28 @@ body {
 .blog-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: rgb(0, 0, 0);
+  color: #000000; /* Black text for high contrast */
   text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.blog-item:hover .blog-title {
+  color: #ff8018; /* Orange text on hover */
 }
 
 .blog-author {
   font-size: 14px;
-  color: #888;
+  color: #999999; /* Grey for less emphasis */
   margin-bottom: 5px;
 }
 
 .blog-content {
   font-size: 16px;
   line-height: 1.6;
+  color: #333333; /* Dark grey for readability */
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .search-box {
     width: 100%;
@@ -126,7 +147,7 @@ body {
   }
 
   .blog-item {
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     align-items: center;
     padding: 15px;
   }
@@ -138,32 +159,86 @@ body {
   }
 
   .blog-info {
-    text-align: center; /* Center align text */
+    text-align: center;
   }
 
   .blog-title {
-    font-size: 20px; /* Adjust font size for smaller screens */
+    font-size: 20px;
   }
 
   .blog-content {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .header h1 {
-    font-size: 36px; /* Adjust heading font size for small screens */
+    font-size: 36px;
   }
 
   .header p {
-    font-size: 16px; /* Adjust paragraph font size for small screens */
+    font-size: 16px;
   }
 
   .search-box {
-    width: calc(100% - 20px); /* Full width minus some margin */
+    width: calc(100% - 20px);
   }
 
   .search-button {
     padding: 10px;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
