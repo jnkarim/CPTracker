@@ -59,6 +59,16 @@ const Navbar = () => {
               Blogs
             </Link>
           </li>
+          {/* New Tutorials link */}
+          <li className="nav-item">
+            <Link
+              className="link"
+              to="/tutorials"
+              onClick={() => setIsMobile(false)}
+            >
+              Tutorials
+            </Link>
+          </li>
         </ul>
 
         {auth.user ? ( // If user is logged in, show logout

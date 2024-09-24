@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Blogs from "./pages/Blogs.jsx";
-
 import AboutCPTracker from "./pages/AboutCPTracker.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import Contest from "./pages/Contest.jsx"; // Adjust path as per your project structure
@@ -12,6 +11,7 @@ import JoinDiscord from "./pages/JoinDiscord.jsx";
 import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";
 import Signup from "./pages/Signup.jsx";
+import Tutorials from "./pages/Tutorials.jsx"; // Import the Tutorials page
 
 const App = () => {
   return (
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/aboutcptracker" element={<AboutCPTracker />} />
           <Route path="/joindiscord" element={<JoinDiscord />} />
+          <Route path="/tutorials" element={<Tutorials />} />
         </Routes>
       </div>
     </>
