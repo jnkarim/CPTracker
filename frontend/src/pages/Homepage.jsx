@@ -68,15 +68,6 @@ const Homepage = () => {
             into a world where every line of code counts, supported by intuitive
             tools and insightful analytics.
           </h2>
-          <button
-            className="half2-login"
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate("/Login");
-            }}
-          >
-            Log In
-          </button>
         </div>
         <svg className="wave" viewBox="0 0 1440 320">
           <path
