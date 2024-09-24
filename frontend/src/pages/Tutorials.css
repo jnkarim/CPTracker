@@ -1,15 +1,120 @@
+/* Basic Styles */
 .tutorials-container {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
+  background-color: #02132d; /* Dark background */
+}
+
+.tutorials-container h1 {
+  font-size: 2.5em;
+  color: #ff7a3c; /* Orange text for better contrast on dark background */
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  animation: zoomIn 0.5s ease-in-out 0.2s;
+}
+
+.search-box {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-box:focus {
+  border-color: #ff8018; /* Orange border on focus */
+}
+
+.tutorials-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  animation: fadeIn 0.7s ease-in-out 0.4s;
+}
+
+.tutorial-card {
+  background-color: #ffffff; /* White background for tutorial cards */
+  border: 1px solid #ff8018;
+  border-radius: 5px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  animation: slideInUp 0.5s ease-in-out;
+}
+
+.tutorial-card:hover {
+  transform: scale(1.02);
+}
+
+.tutorial-card h2 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+.tutorial-card p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.thumbnail {
+  width: 100%; /* Adjust based on your layout */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  
-  .tutorials-container h1 {
-    font-size: 2.5em;
-    color: rgb(255, 122, 60);
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .tutorials-container p {
-    font-size: 1.2em;
-    color: #333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
