@@ -26,6 +26,7 @@ body {
   display: flex;
   height: 350px; /* Adjust height as needed */
   font-size: 30px;
+  justify-content: center;
 }
 
 /* Half sections */
